@@ -20,3 +20,8 @@ Projeto criado durante o curso de Java da Rocketseat.
 * Instalação dos programas e frameworks
 * Exemplo de Controller
 * Criando uma classe para Controller e testando utilizando API DOG
+
+## Aula 02
+
+* Getters e setters do UserModel
+* Adiciona a lib Lombok como dependência do Spring

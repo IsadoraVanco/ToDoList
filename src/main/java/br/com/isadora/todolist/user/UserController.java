@@ -15,10 +15,10 @@ public class UserController {
     
     /*
      * Cria um novo usuário através da requisição feita.
-     * Será lida pelo método POST
+     * Será lida pelo método POST, que será lida pelo Body do HTML
      */
     @PostMapping("/")
     public void create(@RequestBody UserModel userModel){
-        System.out.printf("Novo usuário: %s (%s) senha: %s%n", userModel.name, userModel.username, userModel.password);
+        System.out.printf("Novo usuário: %s (%s) senha: %s%n", userModel.getName(), userModel.getUsername(), userModel.getPassword());
     }
 }
