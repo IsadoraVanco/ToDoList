@@ -1,5 +1,6 @@
 package br.com.isadora.todolist.user;
 
+import java.util.UUID;
 import java.time.LocalDateTime;
 
 import org.hibernate.annotations.CreationTimestamp;
