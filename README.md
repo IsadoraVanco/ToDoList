@@ -4,10 +4,13 @@ Projeto criado durante o curso de Java da Rocketseat.
 
 ## O que foi utilizado?
 
-* Maven: o gerenciador de dependências do Java;
-* Spring: Framework para facilitar a vida;
+* Maven: o gerenciador de dependências do Java
+* Spring: Framework para facilitar a vida
     - Spring Boot DevTools
     - Spring Web
+    - Lombok
+    - Spring Data JPA
+    - H2 Database
 * API DOG: Para fazer testes de requisição HTTP (entre outros)
 * VSCode:
     - vscjava.vscode-java-pack
@@ -20,8 +23,10 @@ Projeto criado durante o curso de Java da Rocketseat.
 * Instalação dos programas e frameworks
 * Exemplo de Controller
 * Criando uma classe para Controller e testando utilizando API DOG
+    - Utilizando o método POST, manda um arquivo json (com atributos para o UserModel) pelo Body para a URL http://localhost:8080/users/
 
 ## Aula 02
 
 * Getters e setters do UserModel
-* Adiciona a lib Lombok como dependência do Spring
+* Adiciona a lib Lombok como dependência do Spring para criar e gerenciar os getters e setters da classe UserModel
+* Integrando o banco de dados H2 com o projeto e acessando pela URL http://localhost:8080/h2-console/
