@@ -1,4 +1,4 @@
-package br.com.isadora.todolist.controller;
+package br.com.isadora.todolist.user;
 
 // import org.springframework.stereotype.Controller; 
 import org.springframework.web.bind.annotation.RestController;
