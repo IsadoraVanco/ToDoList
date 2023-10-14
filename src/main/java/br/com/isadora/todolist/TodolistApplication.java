@@ -3,7 +3,7 @@ package br.com.isadora.todolist;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication //Isso é uma notation => possui um servidor Tomcat
 public class TodolistApplication {
 
 	public static void main(String[] args) {
