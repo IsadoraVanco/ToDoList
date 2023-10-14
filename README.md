@@ -11,6 +11,7 @@ Projeto criado durante o curso de Java da Rocketseat.
     - Lombok
     - Spring Data JPA
     - H2 Database
+    - Bcrypt
 * API DOG: Para fazer testes de requisição HTTP (entre outros)
 * VSCode:
     - vscjava.vscode-java-pack
@@ -32,3 +33,7 @@ Projeto criado durante o curso de Java da Rocketseat.
 * Integrando o banco de dados H2 com o projeto e acessando pela URL http://localhost:8080/h2-console/
 * Validando o username de cada usuário para não ser repetido
 * Utilizando retornos diferentes (erros e sucessos) para cada requisição
+
+## Aula 03
+
+* Criptografando a senha no banco de dados

@@ -1,6 +1,9 @@
 package br.com.isadora.todolist.user;
 
 import org.springframework.web.bind.annotation.RestController;
+
+import at.favre.lib.crypto.bcrypt.BCrypt;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,7 +40,12 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("O Usuário já existe"); 
         }
 
-        var userCreated = this.userRepository.save(userModel); //Salva o usuário passado no BD e na variável
+        //Criptografa a senha 
+        var passwordHashred = BCrypt.withDefaults().hashToString(12, userModel.getPassword().toCharArray());
+        userModel.setPassword(passwordHashred); //Define a senha criptografada no usuário
+        
+        //Salva o usuário passado no BD e na variável
+        var userCreated = this.userRepository.save(userModel); 
 
         //Status code (HTTP): CREATED = 201
         return ResponseEntity.status(HttpStatus.CREATED).body(userCreated); 
