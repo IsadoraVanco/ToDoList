@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-// import jakarta.persistence.Column;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -23,7 +23,7 @@ public class UserModel {
     //Representa um código único para cada informação no formato UUID 
     private UUID id; 
     
-    // @Column(name="usuario") //Define que o username será a coluna "usuario" da tabela
+    @Column(unique = true) //O username deve ser único dentro do banco de dados
     private String username;
     private String name;
     private String password;

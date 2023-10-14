@@ -17,4 +17,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 //O Repositório representa a classe UserModel que possui id do tipo UUID
 public interface IUserRepository extends JpaRepository<UserModel, UUID>{
     
+    //Cria um método que irá procurar um username no banco de dados.
+    //Perceba que não há implementação, pois o Spring Data já entende "sozinho" :)
+    UserModel findByUsername(String username);
 }

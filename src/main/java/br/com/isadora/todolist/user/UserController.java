@@ -25,6 +25,13 @@ public class UserController {
     public UserModel create(@RequestBody UserModel userModel){
         System.out.printf("Novo usuário: %s (%s) senha: %s%n", userModel.getName(), userModel.getUsername(), userModel.getPassword());
         
+        var user = this.userRepository.findByUsername(userModel.getUsername()); //Verifica se o username já existe no banco
+
+        if(user != null){ //O usuário já existe no banco
+            System.out.printf("O usuário (%s) já existe %n", userModel.getUsername());
+            return null;
+        }
+
         var userCreated = this.userRepository.save(userModel); //Salva o usuário passado no BD e na variável
         return userCreated;
     }
