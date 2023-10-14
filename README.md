@@ -6,9 +6,14 @@ Projeto criado durante o curso de Java da Rocketseat.
 
 * Maven: o gerenciador de dependências do Java;
 * Spring: Framework para facilitar a vida;
-    - Spring Boot DevTools;
+    - Spring Boot DevTools
     - Spring Web
 * API DOG: Para fazer testes de requisição HTTP (entre outros)
+* VSCode:
+    - vscjava.vscode-java-pack
+    - vscjava.vscode-spring-initializr
+    - vmware.vscode-spring-boot
+    - vscjava.vscode-spring-boot-dashboard
 
 ## Aula 01
 
