@@ -31,3 +31,4 @@ Projeto criado durante o curso de Java da Rocketseat.
 * Adiciona a lib Lombok como dependência do Spring para criar e gerenciar os getters e setters da classe UserModel
 * Integrando o banco de dados H2 com o projeto e acessando pela URL http://localhost:8080/h2-console/
 * Validando o username de cada usuário para não ser repetido
+* Utilizando retornos diferentes (erros e sucessos) para cada requisição
