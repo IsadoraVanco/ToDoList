@@ -47,3 +47,6 @@ Projeto criado durante o curso de Java da Rocketseat.
 * Validação das horas
 * Lista as tarefas de um usuário
     - Testando com o método GET pela url http://localhost:8080/tasks/ em uma auth
+* Fazendo update de uma task (parcial)
+    - Testando com o método PUT pela url http://localhost:8080/tasks/{idTask}
+    - Copia as informações não nulas do objeto e a nova alteração para a tarefa

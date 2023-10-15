@@ -8,11 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.isadora.todolist.utils.Utils;
 import jakarta.servlet.http.HttpServletRequest;
 
 /*
@@ -67,4 +70,24 @@ public class TaskController {
         return tasks;
     }
     
+    @PutMapping("/{id}") //O conteúdo da URL irá ser convertida para o id. Ex: http://localhost:8080/tasks/123123-ddsfsdf-22312
+    //Faz update das tarefas
+    //O taskmodel será a tarefa, o request guarda o id do usuário autenticado, e o id é o id da tarefa que será alterada
+    public TaskModel update(@RequestBody TaskModel taskModel, HttpServletRequest request, @PathVariable UUID id){
+
+        //Pega o id do usuário
+        // var idUser = request.getAttribute("idUser");
+
+        //Pega o id da tarefa caso exista, senão, atribui null
+        var task = this.taskRepository.findById(id).orElse(null);
+        
+        //Copia para a task, todos os valores não nulos de taskModel
+        Utils.copyNonNullPrperties(taskModel, task);
+
+        // taskModel.setIdUser((UUID) idUser);
+        // taskModel.setId(id);
+
+        return this.taskRepository.save(task);
+    }
+
 }

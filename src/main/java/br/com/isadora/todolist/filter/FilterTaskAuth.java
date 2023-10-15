@@ -36,8 +36,8 @@ public class FilterTaskAuth extends OncePerRequestFilter{
         //Recebe o path (URL)
         var servletPath = request.getServletPath(); 
         
-        //Faz a autenticação apenas se a URL for a de tarefas
-        if(servletPath.equals("/tasks/")){
+        //Faz a autenticação apenas se a URL começa com a de tarefas
+        if(servletPath.startsWith("/tasks/")){
             //Autenticando (recebe usuário e senha digitados)
     
             //Recebe a autorização inteira do request 
