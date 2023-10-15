@@ -55,3 +55,6 @@ Projeto criado durante o curso de Java da Rocketseat.
 
 * Validando usuário dono da tarefa
 * Modifica a mensagem de erro para quando o título é grande demais
+* Fazendo deploy da aplicação:
+    - Utilizando o (Render)[https://render.com/]: para colocar o programa no ar e fazer deploy
+    - Arquivo Docker para criar o arquivo de build no Render
