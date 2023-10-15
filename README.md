@@ -44,3 +44,4 @@ Projeto criado durante o curso de Java da Rocketseat.
 
 * Modificando para que a autenticação de usuário e senha seja feita apenas pela url de tarefas: http://localhost:8080/tasks/
 * Retira a inserção manual do Id do usuário na criação de uma tarefa
+* Validação das horas
