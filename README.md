@@ -37,3 +37,4 @@ Projeto criado durante o curso de Java da Rocketseat.
 ## Aula 03
 
 * Criptografando a senha no banco de dados
+* Cria para as Tasks: uma classe de modelo, um controller e uma interface
