@@ -38,3 +38,4 @@ Projeto criado durante o curso de Java da Rocketseat.
 
 * Criptografando a senha no banco de dados
 * Cria para as Tasks: uma classe de modelo, um controller e uma interface
+* Filtro para verificar se existe o usuário e senha está correto

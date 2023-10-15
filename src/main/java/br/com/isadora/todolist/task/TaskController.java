@@ -22,6 +22,7 @@ public class TaskController {
     //O objeto taskModel da classe TaskModel será recebido pelo Body do Request
     public TaskModel create(@RequestBody TaskModel taskModel){
 
+        System.out.println("A task passou pela controller!");
         //Salva a tarefa no banco
         var task = this.taskRepository.save(taskModel);
         return task;
