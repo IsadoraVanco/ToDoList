@@ -28,25 +28,25 @@ public class UserController {
      */
     @PostMapping("/")
     public ResponseEntity create(@RequestBody UserModel userModel){
-        System.out.printf("Novo usuário: %s (%s) senha: %s%n", userModel.getName(), userModel.getUsername(), userModel.getPassword());
         
         var user = this.userRepository.findByUsername(userModel.getUsername()); //Verifica se o username já existe no banco
-
+        
         if(user != null){ //O usuário já existe no banco
             System.out.printf("O usuário (%s) já existe %n", userModel.getUsername());
-
+            
             //Status code (HTTP): BAD REQUEST = 400 
             //Mostra no body a mensagem de erro
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("O Usuário já existe"); 
         }
-
+        System.out.printf("Novo usuário: %s (%s) senha: %s%n", userModel.getName(), userModel.getUsername(), userModel.getPassword());
+        
         //Criptografa a senha 
         var passwordHashred = BCrypt.withDefaults().hashToString(12, userModel.getPassword().toCharArray());
         userModel.setPassword(passwordHashred); //Define a senha criptografada no usuário
         
         //Salva o usuário passado no BD e na variável
         var userCreated = this.userRepository.save(userModel); 
-
+        
         //Status code (HTTP): CREATED = 201
         return ResponseEntity.status(HttpStatus.CREATED).body(userCreated); 
     }

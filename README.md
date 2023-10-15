@@ -38,4 +38,9 @@ Projeto criado durante o curso de Java da Rocketseat.
 
 * Criptografando a senha no banco de dados
 * Cria para as Tasks: uma classe de modelo, um controller e uma interface
-* Filtro para verificar se existe o usuário e senha está correto
+* Filtro para verificar se o usuário e senha estão corretos
+
+## Aula 04 
+
+* Modificando para que a autenticação de usuário e senha seja feita apenas pela url de tarefas: http://localhost:8080/tasks/
+* Retira a inserção manual do Id do usuário na criação de uma tarefa
