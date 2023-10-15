@@ -73,21 +73,30 @@ public class TaskController {
     @PutMapping("/{id}") //O conteúdo da URL irá ser convertida para o id. Ex: http://localhost:8080/tasks/123123-ddsfsdf-22312
     //Faz update das tarefas
     //O taskmodel será a tarefa, o request guarda o id do usuário autenticado, e o id é o id da tarefa que será alterada
-    public TaskModel update(@RequestBody TaskModel taskModel, HttpServletRequest request, @PathVariable UUID id){
-
-        //Pega o id do usuário
-        // var idUser = request.getAttribute("idUser");
+    public ResponseEntity update(@RequestBody TaskModel taskModel, HttpServletRequest request, @PathVariable UUID id){
 
         //Pega o id da tarefa caso exista, senão, atribui null
         var task = this.taskRepository.findById(id).orElse(null);
+
+        if(task == null){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Tarefa não encontrada");
+        }
+
+        //Pega o id do usuário
+        var idUser = request.getAttribute("idUser");
+
+        //Se o usuário que estiver alterando não for o dono da tarefa
+        if(!task.getIdUser().equals(idUser)){ //BAD REQUEST = 400
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Usuário não tem permissão para alterar essa tarefa");
+        }
         
         //Copia para a task, todos os valores não nulos de taskModel
         Utils.copyNonNullPrperties(taskModel, task);
 
-        // taskModel.setIdUser((UUID) idUser);
-        // taskModel.setId(id);
+        //Salva a tarefa atualizada
+        var taskUpdated = this.taskRepository.save(task);
 
-        return this.taskRepository.save(task);
+        return ResponseEntity.status(HttpStatus.OK).body(taskUpdated);
     }
 
 }

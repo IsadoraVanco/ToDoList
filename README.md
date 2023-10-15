@@ -50,3 +50,8 @@ Projeto criado durante o curso de Java da Rocketseat.
 * Fazendo update de uma task (parcial)
     - Testando com o método PUT pela url http://localhost:8080/tasks/{idTask}
     - Copia as informações não nulas do objeto e a nova alteração para a tarefa
+
+## Aula 05
+
+* Validando usuário dono da tarefa
+* Modifica a mensagem de erro para quando o título é grande demais
