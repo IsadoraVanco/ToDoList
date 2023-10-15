@@ -2,10 +2,12 @@ package br.com.isadora.todolist.task;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -51,6 +53,18 @@ public class TaskController {
         var task = this.taskRepository.save(taskModel);
 
         return ResponseEntity.status(HttpStatus.OK).body(task); //HttpStatus OK = 200
+    }
+
+    @GetMapping("/")
+    //Irá listar todas as tarefas
+    public List<TaskModel> list(HttpServletRequest request){
+
+        //Procura pelo id de usuário do request
+        var idUser = request.getAttribute("idUser");
+        //Procura todas as tarefas do usuário
+        var tasks = this.taskRepository.findByIdUser((UUID) idUser);
+
+        return tasks;
     }
     
 }

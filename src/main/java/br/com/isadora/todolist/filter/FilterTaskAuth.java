@@ -57,6 +57,7 @@ public class FilterTaskAuth extends OncePerRequestFilter{
             System.out.println("***** AUTENTICAÇÃO *****");
             System.out.printf("Autorização total: %s %nCódigo: %s %nDecodificado: %s %n", authorization, authEncoded, authDecoded);
             System.out.printf("Convertido em string: %s %nUsername: %s %nSenha: %s %n", authString, username, password);
+            System.out.println("*************************");
     
             //Validando o usuário 
             
@@ -64,7 +65,7 @@ public class FilterTaskAuth extends OncePerRequestFilter{
             var user = this.userRepository.findByUsername(username);
             
             if(user == null){ //Não existe no banco
-                System.out.println("Conta não encontrada");
+                System.out.println("=> Conta não encontrada");
                 response.sendError(401); //401 = UNAUTHORIZED (o usuário não tem autorização)
             }else{
                 //Validando a senha
@@ -75,10 +76,10 @@ public class FilterTaskAuth extends OncePerRequestFilter{
                 if(passwordVerify.verified){ //Se a senha for correta
                     //O atributo idUser receberá o id que está cadastrado no banco
                     request.setAttribute("idUser", user.getId());
-                    System.out.println("Senha correta. A autenticação passou pelo filtro");
+                    System.out.println("=> Senha correta. A autenticação passou pelo filtro");
                     filterChain.doFilter(request, response);
                 }else{
-                    System.out.println("Senha incorreta");
+                    System.out.println("=> Senha incorreta");
                     response.sendError(401); //401 = UNAUTHORIZED (o usuário não tem autorização)
                 }
             }
